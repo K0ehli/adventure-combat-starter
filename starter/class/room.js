@@ -52,17 +52,22 @@ class Room {
   }
 
   getItemByName(name) {
-
-    // Fill this in
-
+    let index = -1;
+    for (let i = 0; i < this.items.length; i++) {
+      if (this.items[i].name === name) {
+        index = i;
+      }
+      break;
+    }
+    if (index !== -1) {
+      return this.items.splice(index, 1).pop();
+    }
   }
 
   getEnemyByName(name) {
+    return this.getEnemies().filter(enemy => enemy.name === name).pop();
 
-    // Fill this in
-
+  }
 }
 
-module.exports = {
-  Room,
-};
+module.exports = { Room };
